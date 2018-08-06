@@ -1,0 +1,22 @@
+{
+	"features": [
+		{
+			"id": "1",
+			"text": "Search for movies by name using Search panel."
+		},
+		{
+			"id": "2",
+			"text":
+				"A quick search for movies on the three categories (popular, top rated and upcoming) by clicking the corresponding button."
+		},
+		{
+			"id": "3",
+			"text":
+				"Adding to the Watchlist panel those movies that have been marked by the user."
+		},
+		{
+			"id": "4",
+			"text": "Removing movies from the Watchlist panel."
+		}
+	]
+}

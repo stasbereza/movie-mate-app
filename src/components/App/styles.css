@@ -1,0 +1,9 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  max-width: 95%;
+  min-width: 1280px;
+  min-height: 100vh;
+  margin: auto;
+  padding: 0 10px;
+}

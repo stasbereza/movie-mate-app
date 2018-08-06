@@ -1,0 +1,26 @@
+.home {
+  padding: 50px 0;
+  color: var(--primary-color);
+  text-align: center;
+}
+
+.image {
+  display: block;
+  margin: auto;
+}
+
+.title {
+  margin: 50px 0;
+}
+
+.text {
+  width: 40%;
+  margin: auto;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.link {
+  display: inline-block;
+  color: var(--primary-color);
+}

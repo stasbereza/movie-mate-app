@@ -1,0 +1,64 @@
+.watchlistCard {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+  padding: 8px;
+  color: var(--white-color);
+  background-color: var(--secondary-color);
+  border-radius: 2px;
+  box-shadow: 5px 5px 12px 0 rgba(72, 75, 72, 0.5);
+  transition: all 0.3s ease-out;
+  cursor: pointer;
+}
+
+.watchlistCard:hover {
+  box-shadow: 5px 5px 12px 0 rgb(31, 34, 33);
+}
+
+.image {
+  display: block;
+  width: 40%;
+  height: 100px;
+  object-fit: cover;
+}
+
+.body {
+  width: 54%;
+}
+
+.title {
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.rating,
+.release {
+  margin-top: 8px;
+  font-size: 14px;
+}
+
+.button {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  display: block;
+  width: 32px;
+  height: 32px;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--secondary-color);
+  background-color: var(--white-color);
+  line-height: 32px;
+  outline: 0;
+  border: 0;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s linear;
+}
+
+.button:hover {
+  background-color: var(--primary-color);
+  box-shadow: 0 4px 2px 0 rgba(33, 33, 33, 0.5);
+}

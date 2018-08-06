@@ -1,0 +1,43 @@
+.about {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: var(--primary-color);
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+
+.primaryText {
+  margin: auto;
+  margin-bottom: 20px;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.featuresList {
+  text-align: start;
+  margin-bottom: 40px;
+}
+
+.featureItem {
+  margin: auto;
+  margin-left: 44px;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.secondaryText {
+  margin: auto;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.link {
+  display: inline-block;
+  color: var(--primary-color);
+}
+
+.image {
+  width: 100px;
+  height: 140px;
+}

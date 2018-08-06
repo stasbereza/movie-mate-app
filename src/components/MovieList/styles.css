@@ -1,0 +1,10 @@
+.movieList {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.movieListItem {
+  width: 25%;
+  padding: 16px;
+}
