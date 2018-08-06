@@ -17,7 +17,7 @@ export default class SearchForm extends Component {
 	};
 
 	static defaultProps = {
-		onSearchFormSubmit: () => {},
+		onSearchFormSubmit: () => null,
 	};
 
 	state = { ...INITIAL_STATE };

@@ -14,7 +14,7 @@ export default class SearchCategoies extends Component {
 	};
 
 	static defaultProps = {
-		onSearchBtnClick: () => {},
+		onSearchBtnClick: () => null,
 	};
 
 	handleClick = ({ target }) => {
