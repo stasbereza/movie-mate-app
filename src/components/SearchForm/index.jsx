@@ -13,6 +13,7 @@ const INITIAL_STATE = {
 
 export default class SearchForm extends Component {
 	static propTypes = {
+		// currentCategory: PropTypes.string.isRequired,
 		onSearchFormSubmit: PropTypes.func,
 	};
 
@@ -36,8 +37,10 @@ export default class SearchForm extends Component {
 			return;
 		}
 
-		this.props.onSearchFormSubmit(this.state.text);
+		// if (this.props.currentCategory !== '') {
+		// }
 
+		this.props.onSearchFormSubmit(this.state.text);
 		this.setState({ ...INITIAL_STATE });
 	};
 

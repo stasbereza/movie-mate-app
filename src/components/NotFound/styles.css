@@ -1,0 +1,32 @@
+.notFound {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  padding: 8px 16px;
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
+  line-height: 1.5;
+  border-radius: 6px;
+}
+
+.notFound:hover {
+  box-shadow: 0 0 25px 2px rgba(230, 236, 241, 0.4);
+  transition: box-shadow 0.3s ease-out;
+}
+
+.message {
+  padding: 8px;
+}
+
+.link {
+  color: var(--secondary-color);
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 // Components
 import Button from 'components/shared/Button';
 // Instruments
-import styles from './styles.css';
+import styles from './SearchCategories.css';
 
 const queryCategories = ['popular', 'top_rated', 'upcoming'];
 

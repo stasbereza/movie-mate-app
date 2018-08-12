@@ -3,6 +3,7 @@
   height: 100%;
   margin-bottom: 16px;
   padding: 8px;
+  color: var(--secondary-color);
   background-color: var(--white-color);
   line-height: 1.3;
   overflow: hidden;
@@ -24,13 +25,27 @@
 
 .title {
   margin-bottom: 10px;
-  line-height: 1.5;
+  line-height: 1.3;
 }
 
 .overview {
   margin-bottom: 20px;
   font-size: 14px;
   line-height: 1.3;
+}
+
+.link {
+  color: var(--secondary-color);
+  text-decoration: none;
+  margin-bottom: 20px;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.linkText {
+  margin-bottom: 20px;
 }
 
 .release {

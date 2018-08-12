@@ -22,11 +22,11 @@
 .title:before,
 .title:after {
   display: block;
-  content: "";
   width: 16%;
   height: 2px;
   margin-right: 8px;
   background-color: var(--secondary-color);
+  content: "";
 }
 
 .title:before {

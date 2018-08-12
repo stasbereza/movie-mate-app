@@ -14,29 +14,68 @@ class Movies extends Component {
 	state = {
 		movielist: [],
 		watchlist: [],
+		currentCategory: 'popular',
+		currentPage: 1,
 	};
 
 	componentDidMount() {
-		fetchMovieCategories('popular').then(movieCategory => {
+		fetchMovieCategories({
+			query: this.state.currentCategory,
+			page: this.state.currentPage,
+		}).then(movieCategory => {
 			this.setState({
 				movielist: movieCategory,
+				watchlist:
+					JSON.parse(localStorage.getItem('watchlist-movie-mate-app')) || [],
 			});
 		});
 	}
 
 	searchForMovie = query => {
-		fetchMovie(query).then(movie => {
+		this.setState({
+			currentCategory: '',
+			currentPage: 1,
+		});
+
+		fetchMovie({ query }).then(movie => {
 			this.setState({
 				movielist: movie,
+				currentPage: 1,
+			});
+		});
+	};
+
+	showMoreMovies = (query, currentPage) => {
+		this.setState(prevState => ({
+			currentPage: prevState.currentPage + 1,
+		}));
+
+		fetchMovieCategories({ query, page: currentPage }).then(movie => {
+			this.setState({
+				movielist: [...this.state.movielist, ...movie],
 			});
 		});
 	};
 
 	searchForMovieCategory = query => {
-		fetchMovieCategories(query).then(movieCategory => {
+		this.setState({
+			currentPage: 1,
+		});
+
+		fetchMovieCategories({ query, page: 1 }).then(movieCategory => {
 			this.setState({
 				movielist: movieCategory,
+				currentCategory: query,
 			});
+		});
+	};
+
+	showMoreMoviesOnCategory = (query, currentPage) => {
+		fetchMovieCategories({ query, page: currentPage }).then(movieCategory => {
+			this.setState(prevState => ({
+				movielist: [...this.state.movielist, ...movieCategory],
+				currentPage: prevState.currentPage + 1,
+			}));
 		});
 	};
 
@@ -49,36 +88,63 @@ class Movies extends Component {
 			rating,
 		};
 
-		if (this.state.watchlist.find(movieCard => movieCard.id === id)) {
+		if (this.state.watchlist.find(movietoWatch => movietoWatch.id === id)) {
 			return;
 		}
 
 		this.setState({
 			watchlist: [...this.state.watchlist, watchlistCard],
 		});
+		localStorage.setItem(
+			'watchlist-movie-mate-app',
+			JSON.stringify([...this.state.watchlist, watchlistCard]),
+		);
 	};
 
 	deleteMovieCardFromWatchlist = id => {
 		this.setState({
-			watchlist: this.state.watchlist.filter(movieCard => movieCard.id !== id),
+			watchlist: this.state.watchlist.filter(
+				watchlistCard => watchlistCard.id !== id,
+			),
 		});
+		const parsedLSItem = JSON.parse(
+			localStorage.getItem('watchlist-movie-mate-app'),
+		);
+		const filteredLSItem = parsedLSItem.filter(
+			watchlist => watchlist.id !== id,
+		);
+		localStorage.setItem(
+			'watchlist-movie-mate-app',
+			JSON.stringify([...filteredLSItem]),
+		);
 	};
 
 	render() {
-		const { movielist, watchlist } = this.state;
+		const { movielist, watchlist, currentCategory, currentPage } = this.state;
 
 		return (
 			<div className={styles.movies}>
 				<Sidebar>
-					<SearchForm onSearchFormSubmit={this.searchForMovie} />
-					<SearchCategoies onSearchBtnClick={this.searchForMovieCategory} />
+					<SearchForm
+						currentCategory={currentCategory}
+						onSearchFormSubmit={this.searchForMovie}
+					/>
+					<SearchCategoies
+						currentCategory={currentCategory}
+						onSearchBtnClick={this.searchForMovieCategory}
+					/>
 					<Watchlist
 						watchlistCards={watchlist}
 						onDeleteFromWatchlist={this.deleteMovieCardFromWatchlist}
 					/>
 				</Sidebar>
 				<MovieListContainer
+					{...this.props}
 					movieCards={movielist}
+					currentPage={currentPage}
+					currentCategory={currentCategory}
+					onShowMoreMovies={this.showMoreMovies}
+					onShowMoreMoviesOnCategory={this.showMoreMoviesOnCategory}
 					onAddToWatchlist={this.addMovieCardToWatchlist}
 				/>
 			</div>

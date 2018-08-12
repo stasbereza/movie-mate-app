@@ -17,6 +17,14 @@
 		{
 			"id": "4",
 			"text": "Removing movies from the Watchlist panel."
-		}
+    },
+    {
+			"id": "5",
+			"text": "Gettig full movie's overview by clicking \"Read more...\" link on the movie."
+    },
+    {
+			"id": "6",
+			"text": "Saving movies in Watchlist panel even after reload or leaving the page."
+    }
 	]
 }

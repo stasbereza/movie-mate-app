@@ -1,6 +1,6 @@
-export function fetchMovie(query) {
+export function fetchMovie({ query, page }) {
 	return fetch(
-		`https://api.themoviedb.org/3/search/movie?api_key=547ddc7d3c7598eb0dbf44623c45069f&query=${query}`,
+		`https://api.themoviedb.org/3/search/movie?api_key=547ddc7d3c7598eb0dbf44623c45069f&query=${query}&page=${page}`,
 	)
 		.then(response => {
 			if (response.ok) {
@@ -23,9 +23,9 @@ export function fetchMovie(query) {
 		.catch(err => console.log(err));
 }
 
-export function fetchMovieCategories(query) {
+export function fetchMovieCategories({ query, page }) {
 	return fetch(
-		`https://api.themoviedb.org/3/movie/${query}?api_key=547ddc7d3c7598eb0dbf44623c45069f`,
+		`https://api.themoviedb.org/3/movie/${query}?api_key=547ddc7d3c7598eb0dbf44623c45069f&page=${page}`,
 	)
 		.then(response => {
 			if (response.ok) {

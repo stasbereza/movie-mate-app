@@ -1,0 +1,45 @@
+.moviePage {
+  position: relative;
+  display: flex;
+  padding: 8px;
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
+  line-height: 1.5;
+  border-radius: 6px;
+}
+
+.moviePage:hover {
+  box-shadow: 0 0 25px 2px rgba(230, 236, 241, 0.4);
+  transition: box-shadow 0.3s ease-out;
+}
+
+.image {
+  display: block;
+  padding: 8px;
+  object-fit: cover;
+}
+
+.content {
+  padding: 8px;
+}
+
+.title,
+.overview,
+.release,
+.rating {
+  margin-bottom: 16px;
+}
+
+.link {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+  color: var(--secondary-color);
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
